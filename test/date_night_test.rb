@@ -72,30 +72,44 @@ class DateNightTest < MiniTest::Test
     tree = DateNight.new
     tree.insert(50, "Happy Gilmore")
     tree.insert(92, "Sharknado")
-    tree.insert(26, "Mr. Jingles")
+    tree.insert(96, "Boondock Saints")
     tree.insert(24, "Forrest Gump")
     answer = { "Sharknado" => 92 }
     assert_equal answer, tree.max_find
   end
 
-# def test_load_txt
-#   tree = DateNight.new
-#   tree.insert"34, Hannibal Buress: Comedy Camisado
-#   63, Meet My Valentine
-#   22, Experimenter
-#   84, French Dirty
-#   41, Love
-#   10, I Love You Phillip Morris"
-# end
+  def test_include
+  skip
+  tree = DateNight.new
+  tree.insert(50, "Happy Gilmore")
+  tree.insert(92, "Sharknado")
+  tree.insert(26, "Mr. Jingles")
+  tree.insert(24, "Forrest Gump")
+  tree.insert(100, "Toy Story")
+  tree.include_in_tree(16)
+  tree.include?(72)
+  end
 
-# def test_node_has_depth
-#   tree = DateNight.new
-#   tree.insert(50,"Happy Gilmore")
-#   tree.insert(92, "Sharknado")
-#   # assert_equal 1, tree.current.depth
-#   tree.insert(95, "Toy Story")
-#   tree.depth_find
-#   binding.pry
-# end
+def test_load_txt
+  skip
+  tree = DateNight.new
+  tree.insert"34, Hannibal Buress: Comedy Camisado
+  63, Meet My Valentine
+  22, Experimenter
+  84, French Dirty
+  41, Love
+  10, I Love You Phillip Morris"
+end
+
+def test_node_has_depth
+  skip
+  tree = DateNight.new
+  tree.insert(50,"Happy Gilmore")
+  tree.insert(92, "Sharknado")
+  # assert_equal 1, tree.current.depth
+  tree.insert(95, "Toy Story")
+  tree.depth_find
+  binding.pry
+end
 
 end

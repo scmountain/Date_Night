@@ -44,6 +44,21 @@ class DateNight
     else
       { current.title => current.score }
     end
+    def include_in_tree(number)
+      binding.pry
+    if @current.score < number
+      @current = @current.right
+      include_in_tree(number)
+    elsif @current.score > number
+      @current = @current.left
+      include_in_tree(number)
+    elsif @current.score == number
+      "true"
+    else @current.score != number
+      "false"
+    end
+  end
+
   end
   # def depth_find
   #   if @current.right != nil || current.left != nil

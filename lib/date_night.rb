@@ -1,5 +1,5 @@
 class DateNight
-  attr_accessor :head, :current, :array
+  attr_accessor :head, :current,
   def initialize
     @current = nil
     @head = nil
@@ -12,7 +12,6 @@ class DateNight
     end
       if node.score < @current.score
         if @current.left != nil
-          # @current.depth = (@current.depth + 1)
           @current = @current.left
           insert(score, title)
         else
@@ -22,7 +21,6 @@ class DateNight
       end
       if node.score > @current.score
         if @current.right != nil
-          # @current.depth = (@current.depth + 1)
           @current = @current.right
           insert(score, title)
         else
@@ -40,7 +38,6 @@ class DateNight
     end
   end
   def max_find
-    # binding.pry
     if @current.right != nil
       @current = @current.right
       min_find
@@ -48,4 +45,15 @@ class DateNight
       { current.title => current.score }
     end
   end
+  # def depth_find
+  #   if @current.right != nil || current.left != nil
+  #     (@current.depth +1) = @current.depth
+  #     @current = @current.right ; @current = current.left
+  #     insert(score, title)
+  #   else
+  #   end
+  #
+  #   end
+  #   @current.depth = (@current.depth + 1)
+
 end

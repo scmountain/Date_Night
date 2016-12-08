@@ -9,20 +9,22 @@ class DateNightTest < MiniTest::Test
     tree = DateNight.new
     assert_instance_of DateNight, tree
   end
+
   def test_insert_head_node
     tree = DateNight.new
     tree.insert(50, "Happy Gilmore")
-    # assert_equal 100, node.score
-    # assert_equal "Happy Gilmore", node.title
+    assert_equal 50, tree.head.score
+    assert_equal "Happy Gilmore", tree.head.title
     refute_equal nil, tree.head
   end
+
   def test_insert_right_node
     tree = DateNight.new
     tree.insert(50, "Happy Gilmore")
     tree.insert(92, "Sharknado")
-    # binding.pry
     assert_equal 92, tree.head.right.score
   end
+
   def test_insert_left_node
     tree = DateNight.new
     tree.insert(50, "Happy Gilmore")
@@ -54,15 +56,7 @@ class DateNightTest < MiniTest::Test
     tree.insert(100, "Toy Story")
     assert_equal 100, tree.current.right.right.score
   end
-  # def test_node_has_depth
-  #   tree = DateNight.new
-  #   tree.insert(50,"Happy Gilmore")
-  #   tree.insert(92, "Sharknado")
-  #   assert_equal 1, tree.current.depth
-  #   tree.insert(95, "Toy Story")
-  #   tree.insert(100, "Toy Story2")
-  #   binding.pry
-  # end
+
   def test_min
     tree = DateNight.new
     tree.insert(50, "Happy Gilmore")
@@ -83,6 +77,7 @@ class DateNightTest < MiniTest::Test
     answer = { "Sharknado" => 92 }
     assert_equal answer, tree.max_find
   end
+
 # def test_load_txt
 #   tree = DateNight.new
 #   tree.insert"34, Hannibal Buress: Comedy Camisado
@@ -91,6 +86,16 @@ class DateNightTest < MiniTest::Test
 #   84, French Dirty
 #   41, Love
 #   10, I Love You Phillip Morris"
+# end
+
+# def test_node_has_depth
+#   tree = DateNight.new
+#   tree.insert(50,"Happy Gilmore")
+#   tree.insert(92, "Sharknado")
+#   # assert_equal 1, tree.current.depth
+#   tree.insert(95, "Toy Story")
+#   tree.depth_find
+#   binding.pry
 # end
 
 end
